@@ -1,4 +1,4 @@
-package sem3.cars;
+package dat3.cars;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

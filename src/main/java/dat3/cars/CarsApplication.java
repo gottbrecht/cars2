@@ -1,4 +1,4 @@
-package sem3.cars;
+package dat3.cars;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
