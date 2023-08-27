@@ -40,8 +40,8 @@ public class Member {
     @UpdateTimestamp
     private LocalDateTime lastEdited;
 
-    public Member(String username, String password, String email, String firstName, String lastName, String street, String city, String zip) {
-        this.username = username;
+    public Member(String user, String password, String email, String firstName, String lastName, String street, String city, String zip) {
+        this.username = user;
         this.password = password;
         this.email = email;
         this.firstName = firstName;
