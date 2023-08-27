@@ -15,7 +15,9 @@ public class CarsRepositoryTest {
 
     @Autowired
     CarsRepository carsRepository;
+
     boolean isInitialized = false;
+
     @BeforeEach
     void setUp() {
         if(!isInitialized) {
