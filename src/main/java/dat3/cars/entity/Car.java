@@ -9,7 +9,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 //Database
 @Entity
-@Table(name = "Car", schema = "cars")
+@Table
 
 //Lombock
 @Getter
