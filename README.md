@@ -34,3 +34,7 @@ This is not actively working.
 
 ### How to add (dev) connection details for you local MySQL
 You set that in the application.properties. It reads your username and password from the Environmental Variables.
+
+## Other
+### The application is not running, stating:
+Error creating bean with name h2Console.
