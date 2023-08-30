@@ -21,6 +21,7 @@ import java.util.List;
 public class MemberService {
     MemberRepository memberRepository;
 
+    //dependencyInject
     public MemberService(MemberRepository memberRepository) {
         this.memberRepository = memberRepository;
     }

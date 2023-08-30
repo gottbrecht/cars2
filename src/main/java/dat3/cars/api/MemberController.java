@@ -3,6 +3,8 @@ package dat3.cars.api;
 //import dat3.cars.dto.MemberResquest;
 import dat3.cars.dto.MemberRequest;
 import dat3.cars.dto.MemberResponse;
+import dat3.cars.entity.Member;
+import dat3.cars.repositories.MemberRepository;
 import dat3.cars.service.MemberService;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -44,6 +46,7 @@ public class MemberController {
     //security - Anyone
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     MemberResponse addMember(@RequestBody MemberRequest body) {
+
         return memberService.addMember(body);
     }
 
@@ -63,6 +66,10 @@ public class MemberController {
     ResponseEntity<Boolean> deleteMemeberByUsername(@PathVariable String username) {
         return memberService.deleteMemberByUserName(username);
     }
+
+  /*  @GetMapping("/bad")
+    public List<Member> getMembersBad(){
+        return MemberRepository.*/
 
 
 

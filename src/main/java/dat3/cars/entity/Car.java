@@ -16,7 +16,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 @Setter
 @NoArgsConstructor
 
-public class Car {
+public class Car extends AdminDetails {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
