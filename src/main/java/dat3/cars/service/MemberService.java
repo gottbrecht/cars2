@@ -33,7 +33,7 @@ public class MemberService {
             MemberResponse mr = new MemberResponse(m, includeAll);
             memberResponses.add(mr);
         }
-       return memberResponses;
+        return memberResponses;
 
     }
     //    List<MemberResponse> responses = members.stream().map((member -> new MemberResponse(member,includeAll))).toList();
@@ -89,10 +89,19 @@ public class MemberService {
 
     public void setRankingForUser(String username, int value) {
         Member member = memberRepository.findById(username).orElseThrow(() -> new ResponseStatusException
-                (HttpStatus.BAD_REQUEST, "Members with this username doesn't exist"));
+                (HttpStatus.BAD_REQUEST, "Members with this username does exist"));
         member.setRanking(value);
         memberRepository.save(member);
     }
+
+    public void setRankingForNoExistingUser(String username, int value) {
+        Member member = memberRepository.findById(username).orElseThrow(() -> new ResponseStatusException
+                (HttpStatus.BAD_REQUEST, "Members with this username doesn't exist"));
+        member.setRanking(value);
+        memberRepository.save(member);
+
+    }
+
 
     public ResponseEntity<Boolean> deleteMemberByUserName(String username) {
         Member member = memberRepository.findById(username).orElseThrow(() -> new ResponseStatusException
@@ -106,6 +115,12 @@ public class MemberService {
         Member member = getMemberByUsername(username);
         memberRepository.delete(member);
     }
+
+    public ResponseEntity deleteMember_ThatDontExist(String username) {
+        Member member = memberRepository.findAll();
+        memberRepository.delete(member);
+    }
+    return
 
 
     private Member getMemberByUsername(String username){ //hvs ikke den finder member, smider den exception:
