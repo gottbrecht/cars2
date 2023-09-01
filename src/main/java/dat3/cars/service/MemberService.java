@@ -33,9 +33,10 @@ public class MemberService {
             MemberResponse mr = new MemberResponse(m, includeAll);
             memberResponses.add(mr);
         }
-        return memberResponses;
+       return memberResponses;
 
     }
+    //    List<MemberResponse> responses = members.stream().map((member -> new MemberResponse(member,includeAll))).toList();
 
     public List<MemberResponse> getMembersSimple() {
         List<Member> member = memberRepository.findAll();
@@ -86,12 +87,11 @@ public class MemberService {
         return ResponseEntity.ok(true);
     }
 
-    public ResponseEntity<Boolean> setRankingForUser(String username, int value) {
+    public void setRankingForUser(String username, int value) {
         Member member = memberRepository.findById(username).orElseThrow(() -> new ResponseStatusException
                 (HttpStatus.BAD_REQUEST, "Members with this username doesn't exist"));
         member.setRanking(value);
         memberRepository.save(member);
-        return ResponseEntity.ok(true);
     }
 
     public ResponseEntity<Boolean> deleteMemberByUserName(String username) {
@@ -100,4 +100,17 @@ public class MemberService {
         memberRepository.delete(member);
         return ResponseEntity.ok(true);
     }
+
+
+    public void deleteMemberByUsername(String username) {
+        Member member = getMemberByUsername(username);
+        memberRepository.delete(member);
+    }
+
+
+    private Member getMemberByUsername(String username){ //hvs ikke den finder member, smider den exception:
+        return memberRepository.findById(username).
+                orElseThrow(()-> new ResponseStatusException(HttpStatus.NOT_FOUND,"Member with this username does not exist"));
+    }
+
 }

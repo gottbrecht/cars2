@@ -2,13 +2,14 @@ package dat3.cars.dto;
 
 
 import dat3.cars.entity.Member;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 @Getter
 @Setter
 @NoArgsConstructor
+@AllArgsConstructor
+@Builder
+
 public class MemberRequest {
     private String username;
     private String email;
