@@ -7,7 +7,6 @@ import lombok.*;
 
 import java.time.LocalDateTime;
 
-import static com.fasterxml.jackson.annotation.JsonInclude.Include.NON_NULL;
 
 @Getter
 @Setter
@@ -42,7 +41,7 @@ public class MemberResponse {
         this.lastName = m.getLastName();
         this.city = m.getCity();
         this.zip = m.getZip();
-        if(includeAll) {
+        if (includeAll) {
             this.created = m.getCreated();
             this.edited = m.getLastEdited();
             this.approved = m.isApproved();
@@ -50,6 +49,5 @@ public class MemberResponse {
         }
 
     }
-
 
 }

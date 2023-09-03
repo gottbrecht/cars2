@@ -53,7 +53,7 @@ public class CarService {
     public CarResponse getCarByModel(String car_model) {
         Car car = carsRepository.findById (car_model).orElseThrow(() -> new ResponseStatusException
                 (HttpStatus.NOT_FOUND, "Car not found"));
-        return new MemberResponse(car, true);
+        return new CarResponse(car, true);
 
     }
 

@@ -4,7 +4,9 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.springframework.data.jpa.repository.JpaRepository;
+import org.hibernate.annotations.UpdateTimestamp;
+
+import java.time.LocalDateTime;
 
 
 //Database
@@ -31,6 +33,16 @@ public class Car extends AdminDetails {
 
     @Column(name = "max_discount", nullable = true)
     private int max_discount;
+
+    private int ranking;
+    private boolean approved;
+
+    @UpdateTimestamp
+    private LocalDateTime created;
+
+    @UpdateTimestamp
+    private LocalDateTime lastEdited;
+
 
     public Car(String car_brand, String car_model) {
         this.car_brand = car_brand;

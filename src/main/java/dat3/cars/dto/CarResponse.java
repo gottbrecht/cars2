@@ -25,6 +25,7 @@ public class CarResponse {
 
     @JsonFormat(pattern = "dd-MM-yyyy HH:mm:ss", shape = JsonFormat.Shape.STRING)
     LocalDateTime edited;
+    Integer ranking;
     Boolean approved;
 
     public CarResponse(Car c, boolean includeAll) {
@@ -32,6 +33,12 @@ public class CarResponse {
         this.car_brand = c.getCar_brand();
         this.pricePrDay = c.getPricePrDay();
         this.max_discount = c.getMax_discount();
+        if(includeAll) {
+            this.created = c.getCreated();
+            this.edited = c.getLastEdited();
+            this.approved = c.isApproved();
+            this.ranking = c.getRanking();
+        }
 
 
 
