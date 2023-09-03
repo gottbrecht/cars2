@@ -131,7 +131,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
     @Test
         void testDeleteMember_ThatDontExist() {
-            memberService.deleteMemberByUserName("user3");
+            memberService.deleteMemberByUserName("user3"); //it fails when typing "user3" since user3 i not an option
             Member member = memberRepository.findById(m1.getUsername()).get();
             assertEquals(0, member.getUsername());
 

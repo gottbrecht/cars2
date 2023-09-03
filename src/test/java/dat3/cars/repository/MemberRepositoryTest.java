@@ -14,7 +14,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class MemberRepositoryTest {
     @Autowired
     MemberRepository memberRepository;
+
     boolean isInitialized = false;
+
     @BeforeEach
     void setUP() {
         if(!isInitialized) {
