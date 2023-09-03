@@ -1,8 +1,10 @@
 ### What are the benefits of using a RESTful API?
+The benefits of using a RESTful API is, that its re
 
 ### What is JSON, and why does JSON fit so well with REST?
-Data is being sent back and forth through JSON format. No matter what coding language your using, if they have the same properties, 
-by using JSON wrapper, 
+JSON format is used for transering/transmitting data between client and server or within the application.
+JSON supports many programming languages, making it easy to work with in different environments. It
+
 ### How you have designed simple CRUD endpoints using spring boot and DTOs to separate api from data  -> Focus on your use of DTO's
 ### What is the advantage of using using DTOs to separate api from data structure when designing rest endpoints
 ### Explain shortly the concept mocking in relation to software testing
