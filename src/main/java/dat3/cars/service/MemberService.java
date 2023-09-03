@@ -111,18 +111,6 @@ public class MemberService {
     }
 
 
-    public void deleteMemberByUsername(String username) {
-        Member member = getMemberByUsername(username);
-        memberRepository.delete(member);
-    }
-
-    public ResponseEntity deleteMember_ThatDontExist(String username) {
-        Member member = memberRepository.findAll();
-        memberRepository.delete(member);
-    }
-    return
-
-
     private Member getMemberByUsername(String username){ //hvs ikke den finder member, smider den exception:
         return memberRepository.findById(username).
                 orElseThrow(()-> new ResponseStatusException(HttpStatus.NOT_FOUND,"Member with this username does not exist"));
