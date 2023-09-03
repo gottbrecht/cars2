@@ -2,9 +2,9 @@ package dat3.cars.service;
 
 import dat3.cars.dto.CarRequest;
 import dat3.cars.dto.CarResponse;
+//import dat3.cars.dto.MemberResponse;
 import dat3.cars.dto.MemberResponse;
 import dat3.cars.entity.Car;
-import da
 import dat3.cars.repositories.CarsRepository;
 
 import org.springframework.http.HttpStatus;
@@ -37,21 +37,21 @@ public class CarService {
     }
     //    List<CarsResponse> responses = cars.stream().map((car -> new CarResponse(car,includeAll))).toList();
 
-    public List<CarResponse> getCars() {
+    public List<CarResponse> getCarsSimple() {
         List<Car> car = carsRepository.findAll();
         List<CarResponse> cars = new ArrayList<>();
         for (Car c : car) {
             CarResponse cr = CarResponse.builder()
-                    .car_model(c.getCar_brand()) //mangler attributter for car
-                    .car_brand(c.getCar_model())//mangler attributter for car
+                    .car_model(c.getCar_model()) //mangler attributter for car
+                    .car_brand(c.getCar_brand())//mangler attributter for car
                     .build();
             cars.add(cr);
         }
         return cars;
     }
 
-    public CarResponse getCarByModel(String model) {
-        Car car = carsRepository.findById(car_model) .orElseThrow(() -> new ResponseStatusException
+    public CarResponse getCarByModel(String car_model) {
+        Car car = carsRepository.findById (car_model).orElseThrow(() -> new ResponseStatusException
                 (HttpStatus.NOT_FOUND, "Car not found"));
         return new MemberResponse(car, true);
 
@@ -92,25 +92,25 @@ public class CarService {
             memberRepository.save(member);
         }
     */
-    public void setRankingForNoExistingUser(String username, int value) {
-        Car car = carsRepository.findById(username).orElseThrow(() -> new ResponseStatusException
-                (HttpStatus.BAD_REQUEST, "Members with this username doesn't exist"));
+    public void setRankingForNoExistingUser(String car_model, int value) {
+        Car car = carsRepository.findById(car_model).orElseThrow(() -> new ResponseStatusException
+                (HttpStatus.BAD_REQUEST, "Car with this model, doesn't exist"));
         car.setRanking(value);
         carsRepository.save(car);
 
     }
 
 
-    public ResponseEntity<Boolean> deleteMemberByUserName(String username) {
-        Car car = carsRepository.findById(username).orElseThrow(() -> new ResponseStatusException
-                (HttpStatus.BAD_REQUEST, "Member w this un doesn't exist"));
+    public ResponseEntity<Boolean> deleteCarByCar_model(String car_model) {
+        Car car = carsRepository.findById(car_model).orElseThrow(() -> new ResponseStatusException
+                (HttpStatus.BAD_REQUEST, "Car w this model doesn't exist"));
         carsRepository.delete(car);
         return ResponseEntity.ok(true);
     }
 
 
-    private Car getMemberByUsername(String username) { //hvs ikke den finder member, smider den exception:
-        return carsRepository.findById(username).
-                orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Member with this username does not exist"));
+    private Car getCarByCar_model(String car_model) { //hvis ikke den finder modellen, smider den en exception:
+        return carsRepository.findById(car_model).
+                orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Car with this model does not exist"));
     }
 }

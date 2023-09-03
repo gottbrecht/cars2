@@ -23,7 +23,6 @@ public class Car extends AdminDetails {
     int id;
     @Column(nullable = true, name = "brand", length = 50)
     private String car_brand;
-
     @Column(nullable = true, name = "Model", length = 60)
     private String car_model;
 
