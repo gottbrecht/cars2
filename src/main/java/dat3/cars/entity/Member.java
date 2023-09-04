@@ -54,4 +54,7 @@ public class Member {
         this.zip = zip;
 
     }
+
+    public Member(String username, String password, String email, String street, String city, String zip) {
+    }
 }

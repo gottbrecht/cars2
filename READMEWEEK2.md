@@ -2,11 +2,12 @@
 The benefits of using a RESTful API is, that its re
 
 ### What is JSON, and why does JSON fit so well with REST?
-JSON format is used for transering/transmitting data between client and server or within the application.
+JSON format is used for transfering/transmitting data between client and server or within the application.
 JSON supports many programming languages, making it easy to work with in different environments. It
 
 ### How you have designed simple CRUD endpoints using spring boot and DTOs to separate api from data  -> Focus on your use of DTO's
-### What is the advantage of using using DTOs to separate api from data structure when designing rest endpoints
+
+### What is the advantage of using DTOs to separate api from data structure when designing rest endpoints
 ### Explain shortly the concept mocking in relation to software testing
 ### How did you mock database access in your tests, using an in-memory database and/or mockito → Refer to your code
 ### Explain the concept Build Server and the role Github Actions play here
