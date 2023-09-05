@@ -33,6 +33,7 @@ public class MemberResponse {
     Integer ranking;
     Boolean approved;
 
+    //Converting member entity to memeber DTO
     public MemberResponse(Member m, boolean includeAll) {
         this.username = m.getUsername();
         this.email = m.getEmail();
